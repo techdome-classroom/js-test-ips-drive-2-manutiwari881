@@ -1,6 +1,6 @@
 var isValid = function(s) {
   const stack = [];
-  const characters = { ')': '(', '}': '{', ']': '[' };
+  const characters = { '(': ')', '{': '}', '[': ']' }; // Reversed keys and values
   for (const char of s) {
     if (!characters[char]) {
       stack.push(char);
@@ -11,4 +11,4 @@ var isValid = function(s) {
   return stack.length === 0;
 };
 
-module.exports = { isValid }
+module.exports = { isValid };
