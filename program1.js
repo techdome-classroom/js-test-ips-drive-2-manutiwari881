@@ -11,6 +11,10 @@ var isValid = function(s) {
         if (pairs[char]) {
             stack.push(char);
         } else {
+            // Check if the stack is empty before popping
+            if (stack.length === 0) {
+                return false;
+            }
             const lastOpening = stack.pop();
             if (pairs[lastOpening] !== char) {
                 return false;
@@ -18,6 +22,7 @@ var isValid = function(s) {
         }
     }
 
+    // Check if there are remaining unclosed parentheses in the stack
     return stack.length === 0;
 };
 
